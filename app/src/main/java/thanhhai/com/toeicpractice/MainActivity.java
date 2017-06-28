@@ -1,5 +1,6 @@
 package thanhhai.com.toeicpractice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.braunster.androidchatsdk.firebaseplugin.firebase.BChatcatNetworkAdapter;
+import com.braunster.chatsdk.Utils.helper.ChatSDKUiHelper;
+import com.braunster.chatsdk.activities.ChatSDKLoginActivity;
+import com.braunster.chatsdk.network.BNetworkManager;
 
 import thanhhai.com.toeicpractice.Fragment.BottomNavigationFragment;
 import thanhhai.com.toeicpractice.Fragment.SearchQuesFragment;
@@ -43,6 +49,11 @@ public class MainActivity extends AppCompatActivity
 
         bottomNavigationFragment = new BottomNavigationFragment();
         xuLyBottomNavigation();
+
+        ChatSDKUiHelper.initDefault();
+        BNetworkManager.init(getApplicationContext());
+        BChatcatNetworkAdapter adapter = new BChatcatNetworkAdapter(getApplicationContext());
+        BNetworkManager.sharedManager().setNetworkAdapter(adapter);
 
     }
 
@@ -96,6 +107,9 @@ public class MainActivity extends AppCompatActivity
             if (fragment == null) {
                 xuLyBottomNavigation();
             }
+        }else if (id == R.id.action_lienhe) {
+            Intent myIntent = new Intent(MainActivity.this, ChatSDKLoginActivity.class);
+            MainActivity.this.startActivity(myIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
