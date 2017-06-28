@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "646149894072",
+    "firebase_url": "https://toeic-practice-296d3.firebaseio.com",
+    "project_id": "toeic-practice-296d3",
+    "storage_bucket": "toeic-practice-296d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646149894072:android:2a3f4e669b4f48f9",
+        "android_client_info": {
+          "package_name": "thanhhai.com.toeicpractice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646149894072-77510v6ajf0uh82spl8aquqr846qcqv1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "thanhhai.com.toeicpractice",
+            "certificate_hash": "5b4f8417a5bcf2e502cda3a4def40c5294fbf515"
+          }
+        },
+        {
+          "client_id": "646149894072-ejlfofur23c7loe1r8pj1oct872u6fok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOnBUXtgxGaJpHl5UbeZRmQ0FOT2IrlMg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646149894072-ejlfofur23c7loe1r8pj1oct872u6fok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
