@@ -32,27 +32,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.braunster.chatsdk.activities.ChatSDKLoginActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChatSDKTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewPager.ScreenSlideActivity" />
-        <activity android:name=".CheckAnswer.TestDoneActivity" />
-        <activity android:name=".DataVocabulary.VocabularyActivity" />
+        <activity
+            android:name=".ViewPager.ScreenSlideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CheckAnswer.TestDoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DataVocabulary.VocabularyActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".FCM.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".FCM.MyFirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".CardViewHome.QuestionActivity" />
+        <activity android:name=".CardViewHome.MusicsActivity"></activity>
     </application>
 
 </manifest>

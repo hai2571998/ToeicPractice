@@ -1,12 +1,51 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="thanhhai.com.toeicpractice.Fragment.ContactFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhập câu hỏi"/>
+
+    <EditText
+        android:id="@+id/txtCauHoi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/txtAnswer_A"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập Answer A" />
+
+    <EditText
+        android:id="@+id/txtAnswer_B"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập Answer B"/>
+
+    <EditText
+        android:id="@+id/txtAnswer_C"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập Answer C"/>
+
+    <EditText
+        android:id="@+id/txtAnswer_D"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập Answer D"/>
+
+    <Button
+        android:id="@+id/btnPushQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Submit"/>
+
+
+</LinearLayout>

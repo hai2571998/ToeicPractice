@@ -53,8 +53,6 @@ public class ScreenSlideActivity extends FragmentActivity {
     ImageButton imgbtnPrev, imgbtnNext;
     private boolean anHien = false;
 
-    // nó báo ko thực thi đc do ko tìm thấy bảng tracngheim
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,16 +151,16 @@ public class ScreenSlideActivity extends FragmentActivity {
     public void dialogExit() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(ScreenSlideActivity.this);
         builder.setIcon(R.drawable.exit);
-        builder.setTitle("Thông báo");
-        builder.setMessage("Bạn có muốn thoát hay không?");
-        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+        builder.setTitle("Notification");
+        builder.setMessage("Do you want to exit?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 timer.cancel();
                 finish();
             }
         });
-        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }

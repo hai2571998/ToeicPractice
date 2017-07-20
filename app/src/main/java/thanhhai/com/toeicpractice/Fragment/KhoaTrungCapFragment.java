@@ -26,28 +26,28 @@ import thanhhai.com.toeicpractice.MainActivity;
 import thanhhai.com.toeicpractice.R;
 import thanhhai.com.toeicpractice.ViewPager.ScreenSlideActivity;
 
-public class ToeicAFragment extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+public class KhoaTrungCapFragment extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+
 
     ExamAdapter examAdapter;
     GridView gvExam;
     ArrayList<Exam> arr_exam = new ArrayList<Exam>();
     private SliderLayout imageSlider;
 
-    public ToeicAFragment() {
+    public KhoaTrungCapFragment() {
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Toiec 100 - 350 điểm");
-        View rootView = inflater.inflate(R.layout.fragment_toeic_a, container, false);
-        return rootView;
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Khóa Trung Cấp (550-750)");
+        return inflater.inflate(R.layout.fragment_khoa_trung_cap, container, false);
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         imageSlider = (SliderLayout) getActivity().findViewById(R.id.slider);
         HashMap<String, String> url_maps = new HashMap<String, String>();
         url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
@@ -58,7 +58,7 @@ public class ToeicAFragment extends Fragment implements BaseSliderView.OnSliderC
         HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
         file_maps.put("Hãy cùng chúng tôi luyện thi TOEIC", R.drawable.toeictips);
         file_maps.put("Big Bang Theory", R.drawable.slider1);
-        file_maps.put("House of Cards",R.drawable.slider2);
+        file_maps.put("House of Cards", R.drawable.slider2);
         file_maps.put("Game of Thrones", R.drawable.slider3);
 
         for (String name : file_maps.keySet()) {
@@ -82,6 +82,7 @@ public class ToeicAFragment extends Fragment implements BaseSliderView.OnSliderC
         imageSlider.addOnPageChangeListener(this);
 
         gvExam = (GridView) getActivity().findViewById(R.id.gvExam);
+        arr_exam.clear();
         arr_exam.add(new Exam("Đề số 1"));
         arr_exam.add(new Exam("Đề số 2"));
         arr_exam.add(new Exam("Đề số 3"));
@@ -104,7 +105,6 @@ public class ToeicAFragment extends Fragment implements BaseSliderView.OnSliderC
                 startActivity(intent);
             }
         });
-
     }
 
     @Override

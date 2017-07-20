@@ -12,7 +12,7 @@
         android:id="@+id/imgIcon"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/subject" />
+        android:src="@drawable/level1" />
 
     <TextView
         android:id="@+id/tvNumExam"
@@ -22,7 +22,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Đề Số 1"
-        android:textColor="#444"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="12sp"
         android:textStyle="bold" />
 

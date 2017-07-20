@@ -35,10 +35,10 @@ public class ScoreFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        scoreController=new ScoreController(getActivity());
-        lvScore=(ListView) getActivity().findViewById(R.id.lvScore);
-        Cursor cursor=scoreController.getScore();
-        scoreAdapter=new ScoreAdapter(getActivity(),cursor,true);
+        scoreController = new ScoreController(getActivity());
+        lvScore = (ListView) getActivity().findViewById(R.id.lvScore);
+        Cursor cursor = scoreController.getScore();
+        scoreAdapter = new ScoreAdapter(getActivity(), cursor, true);
         lvScore.setAdapter(scoreAdapter);
     }
 }

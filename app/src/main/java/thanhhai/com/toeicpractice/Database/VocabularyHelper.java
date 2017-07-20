@@ -29,6 +29,7 @@ public class VocabularyHelper extends SQLiteOpenHelper {
     public static final String COL_SONG = "_song";
     public static final String COL_URL = "_url";
     public static final String COL_SOUND = "_sound";
+    public static final String COL_AUTHOR = "_author";
 
     public VocabularyHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);

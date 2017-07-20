@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -78,26 +79,34 @@ public class SplashScreen extends AppCompatActivity {
 
         if (this.isInternet()) {
             this.checkExistDatabase(path);
-        } else if (isFileExist(path)) {
+        } else if (this.isFileExist(path) && this.isInternet() == false) {
             this.startMain();
         } else {
-            this.showError("Application can ket noi inteeeeene");
+            this.showError("Application can ket noi internet");
         }
     }
 
-    public boolean isInternet() {
-        ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (conMgr.getActiveNetworkInfo() != null
-                && conMgr.getActiveNetworkInfo().isAvailable()
-                && conMgr.getActiveNetworkInfo().isConnected()) {
+    private boolean isInternet() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm.getActiveNetworkInfo() != null
+                && cm.getActiveNetworkInfo().isAvailable()
+                && cm.getActiveNetworkInfo().isConnected()) {
             return true;
+        } else {
+            Log.e("LOI", "Internet Connection Not Present");
+            return false;
         }
-        return false;
     }
 
     public void showError(String message) {
-        Toast.makeText(SplashScreen.this, "Lỗi", Toast.LENGTH_LONG).show();
+        Toast.makeText(SplashScreen.this, message, Toast.LENGTH_LONG).show();
 
+    }
+
+    public static boolean isFileExist(String path) {
+        File exercise = new File(path + File.separator + "exercise.db");
+        File toeic = new File(path + File.separator + "toeic.db");
+        return (exercise.exists() && !exercise.isDirectory() && toeic.exists() && !toeic.isDirectory());
     }
 
     public String getDatabasePath() {
@@ -153,7 +162,8 @@ public class SplashScreen extends AppCompatActivity {
     public boolean checkFileDatabase(@NonNull String path, @NonNull String name, @NonNull String md5) {
         File file = new File(path + File.separator + name + TYPE);
         if (file.exists() && !file.isDirectory()) {
-            return md5.equals(this.fileToMD5(file));
+           // return md5.equals(this.fileToMD5(file));
+            return true;
         }
         return false;
     }
@@ -165,7 +175,6 @@ public class SplashScreen extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() instanceof Map) {
                     Map<String, Object> mapDatabase = (Map<String, Object>) dataSnapshot.getValue();
-
                     for (String key : mapDatabase.keySet()) {
                         Object obj = (Map<String, Object>) mapDatabase.get(key);
                         if (obj instanceof Map) {
@@ -266,11 +275,5 @@ public class SplashScreen extends AppCompatActivity {
         Intent i = new Intent(SplashScreen.this, MainActivity.class);
         this.startActivity(i);
         this.finish();
-    }
-
-    public static boolean isFileExist(String path) {
-        File exercise = new File(path + File.separator + "exercise.db");
-        File toeic = new File(path + File.separator + "toeic.db");
-        return (exercise.exists() && !exercise.isDirectory() && toeic.exists() && !toeic.isDirectory());
     }
 }

@@ -90,4 +90,26 @@ public class SQLiteDatasource {
         }
         return list;
     }
+
+    public ArrayList<Musics> getSong() {
+        Cursor cursor = database.query(VocabularyHelper.TABLE_NAME_MUSIC, null, null, null, null, null, null);
+        return parseCursorSong(cursor);
+    }
+
+    private ArrayList<Musics> parseCursorSong(Cursor cursor) {
+        ArrayList<Musics> list = null;
+        if (cursor.moveToFirst()) {
+            list = new ArrayList<>();
+            while (!cursor.isAfterLast()) {
+                Musics musics = new Musics();
+                musics.set_id(cursor.getInt(cursor.getColumnIndex(VocabularyHelper.COL_ID1)));
+                musics.set_song(cursor.getString(cursor.getColumnIndex(VocabularyHelper.COL_SONG)));
+                musics.set_urlsong(cursor.getString(cursor.getColumnIndex(VocabularyHelper.COL_URL)));
+                musics.set_author(cursor.getString(cursor.getColumnIndex(VocabularyHelper.COL_AUTHOR)));
+                list.add(musics);
+                cursor.moveToNext();
+            }
+        }
+        return list;
+    }
 }

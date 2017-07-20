@@ -12,25 +12,17 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/toeicA"
-                    android:icon="@drawable/cauhoi"
-                    android:title="TOEIC 100 – 300 điểm" />
+                    android:id="@+id/action_socap"
+                    android:icon="@drawable/level1"
+                    android:title="Khóa Sơ Cấp (400-550)" />
                 <item
-                    android:id="@+id/toeicB"
-                    android:icon="@drawable/tracnghiem"
-                    android:title="TOEIC 300 – 450 điểm" />
+                    android:id="@+id/action_trungcap"
+                    android:icon="@drawable/level2"
+                    android:title="Khóa Trung Cấp (550-750)" />
                 <item
-                    android:id="@+id/toeicC"
-                    android:icon="@drawable/cauhoi"
-                    android:title="TOEIC 400 – 650 điểm" />
-                <item
-                    android:id="@+id/toeicD"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="TOEIC 650 – 850 điểm" />
-                <item
-                    android:id="@+id/toeicE"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="TOEIC 850 – 990 điểm" />
+                    android:id="@+id/action_nangcao"
+                    android:icon="@drawable/level3"
+                    android:title="Khóa Nâng Cao (750-990)" />
             </group>
         </menu>
     </item>
@@ -42,15 +34,14 @@
                     android:icon="@drawable/ic_menu_send"
                     android:title="Trợ giúp Online" />
                 <item
-                    android:id="@+id/search"
+                    android:id="@+id/action_search"
                     android:icon="@drawable/ic_menu_send"
                     android:title="Tìm kiếm câu hỏi" />
                 <item
-                    android:id="@+id/score"
+                    android:id="@+id/action_score"
                     android:icon="@drawable/ic_menu_send"
                     android:title="Danh sách điểm" />
             </group>
         </menu>
     </item>
-
 </menu>

@@ -30,7 +30,7 @@ public class ExamAdapter extends ArrayAdapter<Exam> {
         Exam p= getItem(position);
         if(p!=null){
             tvName.setText(""+ p.getName());
-            imgIcon.setImageResource(R.drawable.subject);
+            imgIcon.setImageResource(R.drawable.item_question);
         }
 
         return convertView;

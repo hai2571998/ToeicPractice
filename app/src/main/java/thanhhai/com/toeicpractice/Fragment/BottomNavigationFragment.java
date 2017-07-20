@@ -31,7 +31,7 @@ public class BottomNavigationFragment extends Fragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Toeic Practice");
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle(R.string.app_name);
         return inflater.inflate(R.layout.fragment_bottom_navigation, container, false);
 
     }

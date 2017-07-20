@@ -34,7 +34,6 @@ public class QuestionController {
         Cursor cursor = database.rawQuery("SELECT * FROM tracnghiem WHERE question LIKE '%" + key + "%' AND subject LIKE '%" + subject + "%'", null);
         if (cursor != null) {
             cursor.moveToFirst();
-            cursor.close();
         }
         return cursor;
     }

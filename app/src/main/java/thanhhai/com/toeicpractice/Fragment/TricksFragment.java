@@ -29,8 +29,8 @@ public class TricksFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         pdfView= (PDFView)getActivity().findViewById(R.id.pdfView);
         pdfView.fromAsset(SAMPLE_FILE)
                 .enableSwipe(true)

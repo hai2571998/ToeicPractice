@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.ShareCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,18 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.braunster.androidchatsdk.firebaseplugin.firebase.BChatcatNetworkAdapter;
-import com.braunster.chatsdk.Utils.helper.ChatSDKUiHelper;
-import com.braunster.chatsdk.activities.ChatSDKLoginActivity;
-import com.braunster.chatsdk.network.BNetworkManager;
-
 import thanhhai.com.toeicpractice.Fragment.BottomNavigationFragment;
+import thanhhai.com.toeicpractice.Fragment.KhoaNangCaoFragment;
+import thanhhai.com.toeicpractice.Fragment.KhoaSoCapFragment;
+import thanhhai.com.toeicpractice.Fragment.KhoaTrungCapFragment;
 import thanhhai.com.toeicpractice.Fragment.SearchQuesFragment;
-import thanhhai.com.toeicpractice.Fragment.ToeicAFragment;
-import thanhhai.com.toeicpractice.Fragment.ToeicBFragment;
-import thanhhai.com.toeicpractice.Fragment.ToeicCFragment;
-import thanhhai.com.toeicpractice.Fragment.ToeicDFragment;
-import thanhhai.com.toeicpractice.Fragment.ToeicEFragment;
 import thanhhai.com.toeicpractice.Score.ScoreFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -46,14 +40,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
 
         bottomNavigationFragment = new BottomNavigationFragment();
         xuLyBottomNavigation();
-
-        ChatSDKUiHelper.initDefault();
-        BNetworkManager.init(getApplicationContext());
-        BChatcatNetworkAdapter adapter = new BChatcatNetworkAdapter(getApplicationContext());
-        BNetworkManager.sharedManager().setNetworkAdapter(adapter);
 
     }
 
@@ -76,10 +66,14 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.menu_item_share) {
+            String playStoreLink = "https://play.google.com/store/apps/details?id=" + getPackageName();
+            String yourShareText = "Install this app " + playStoreLink;
+            Intent shareIntent = ShareCompat.IntentBuilder.from(this)
+                    .setType("text/plain").setText(yourShareText).getIntent();
+            startActivity(Intent.createChooser(shareIntent, "Sharing Option"));
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -87,29 +81,21 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        if (id == R.id.toeicA) {
-            xulyToeicA();
-        } else if (id == R.id.toeicB) {
-            xulyToeicB();
-        } else if (id == R.id.toeicC) {
-            xulyToeicC();
-        } else if (id == R.id.toeicD) {
-            xulyToeicD();
-        } else if (id == R.id.toeicE) {
-            xulyToeicE();
-        } else if (id == R.id.search) {
+        if (id == R.id.action_socap) {
+            xulyKhoaSoCap();
+        } else if (id == R.id.action_trungcap) {
+            xulyKhoaTrungCap();
+        } else if (id == R.id.action_nangcao) {
+            xulyKhoaNangCao();
+        } else if (id == R.id.action_search) {
             xuLySearch();
-        } else if (id == R.id.score) {
+        } else if (id == R.id.action_score) {
             xuLyScore();
         } else if (id == R.id.action_home) {
             Fragment fragment = getSupportFragmentManager().findFragmentByTag(bottomNavigationFragment.getTag());
             if (fragment == null) {
                 xuLyBottomNavigation();
             }
-        }else if (id == R.id.action_lienhe) {
-            Intent myIntent = new Intent(MainActivity.this, ChatSDKLoginActivity.class);
-            MainActivity.this.startActivity(myIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -129,40 +115,27 @@ public class MainActivity extends AppCompatActivity
         manager.beginTransaction().replace(R.id.content_main, searchQuesFragment, searchQuesFragment.getTag()).commit();
     }
 
-    private void xulyToeicE() {
-        ToeicEFragment toeicEFragment = new ToeicEFragment();
+    private void xulyKhoaNangCao() {
+        KhoaNangCaoFragment khoaNangCaoFragment = new KhoaNangCaoFragment();
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, toeicEFragment, toeicEFragment.getTag()).commit();
+        manager.beginTransaction().replace(R.id.content_main, khoaNangCaoFragment).addToBackStack(null).commit();
     }
 
-    private void xulyToeicD() {
-        ToeicDFragment toeicDFragment = new ToeicDFragment();
+    private void xulyKhoaTrungCap() {
+        KhoaTrungCapFragment khoaTrungCapFragment = new KhoaTrungCapFragment();
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, toeicDFragment, toeicDFragment.getTag()).commit();
+        manager.beginTransaction().replace(R.id.content_main, khoaTrungCapFragment).addToBackStack(null).commit();
     }
 
-    private void xulyToeicC() {
-        ToeicCFragment toeicCFragment = new ToeicCFragment();
+    private void xulyKhoaSoCap() {
+        KhoaSoCapFragment khoaSoCapFragment = new KhoaSoCapFragment();
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, toeicCFragment, toeicCFragment.getTag()).commit();
-    }
-
-    private void xulyToeicB() {
-        ToeicBFragment toeicBFragment = new ToeicBFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, toeicBFragment, toeicBFragment.getTag()).commit();
-    }
-
-    private void xulyToeicA() {
-        ToeicAFragment toeicAFragment = new ToeicAFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, toeicAFragment).addToBackStack(null).commit();
+        manager.beginTransaction().replace(R.id.content_main, khoaSoCapFragment).addToBackStack(null).commit();
 
     }
 
     private void xuLyBottomNavigation() {
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, bottomNavigationFragment,
-                bottomNavigationFragment.getTag()).commit();
+        manager.beginTransaction().replace(R.id.content_main, bottomNavigationFragment, bottomNavigationFragment.getTag()).commit();
     }
 }
