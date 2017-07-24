@@ -4,6 +4,7 @@ package thanhhai.com.toeicpractice.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,6 @@ public class ContactFragment extends Fragment {
         txtAnswer_C = (EditText) getActivity().findViewById(R.id.txtAnswer_C);
         txtAnswer_D = (EditText) getActivity().findViewById(R.id.txtAnswer_D);
         btnPushQuestion = (Button) getActivity().findViewById(R.id.btnPushQuestion);
-
         btnPushQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,14 +52,21 @@ public class ContactFragment extends Fragment {
                 valAnswerB = txtAnswer_B.getText().toString();
                 valAnswerC = txtAnswer_C.getText().toString();
                 valAnswerD = txtAnswer_D.getText().toString();
+
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                PushQuestion pushQuestion = new PushQuestion(valCauHoi, valAnswerA, valAnswerB, valAnswerC, valAnswerD, 0, 0, 0, 0);
-                ref.child("question").push().setValue(pushQuestion, new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                        Toast.makeText(getContext(), "Câu hỏi của bạn đã gửi đến người hỗ trợ.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+
+                if (!valCauHoi.equals("") || !valAnswerA.equals("") || !valAnswerB.equals("") || !txtAnswer_C.equals("") || !valAnswerD.equals("")) {
+                    Log.e("val", valCauHoi+valAnswerA+valAnswerB+valAnswerC+valAnswerD);
+                    PushQuestion pushQuestion = new PushQuestion(valCauHoi, valAnswerA, valAnswerB, valAnswerC, valAnswerD, 0, 0, 0, 0);
+                    ref.child("question").push().setValue(pushQuestion, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            Toast.makeText(getContext(), "Câu hỏi của bạn đã gửi đến người hỗ trợ.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -27,22 +27,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             display = true;
         }
 
-        // hinh nhu no chi co 1 mau thoi, v chac no ko co mau rui hihi
-        // no filter 1 mau, dạ e cam on a, a dang lam app j ha a
-        // thi bang lai xe , android ha a
-        // uh viet bang kotlin voi realm database, a viet quay video e coi vs, hihi
-        // moi viet dc cai menu slide thoi, thay a it on ge, kim a khó dễ sợ
-        // dam gio~ may ngay, chuan bi dam gio nua, suong hihi, e học qs mệt dam gio chay @@ co j dau,  taon do xao
-        // e thay facebook a ít bạn bè nên a ko on thường kím a khó
-        // co su dung facebook dau ma co ban => 2 thang kia choi game ket ban , chu a thuong su dung j a
-        // tu ki , chan thế a, fb vo doc tin xam xam khong,  do vo group moi tao nick chu khong cung cha co facebok lun, fb xoa me 2 nam truoc troi
-        // hihi a cu lên fb đều đều đi a e lun chờ a hahah, kim ng giúp mk khó gê, cais app nay xong roi ak, tao nick roi dang len app store, chu co khinh phi a,
-        // 25$ hay saosko bjk, dung r a 25
-        // co am thanh gi khong, cung ko pk nen cho am thanh j
-        // viewpager ak sao ,animation khac the, cua google lun ak a+
-        // dung cho app bang lai xe cung dc ak a
-        // anh lam merial design j lun
-        // kotlin e cung biết chut chut
         if (display == false)
             displayNotification(remoteMessage.getData().get("body"), remoteMessage.getData().get("title"));
     }

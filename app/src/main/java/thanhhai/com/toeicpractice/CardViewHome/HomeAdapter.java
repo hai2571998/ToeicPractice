@@ -70,7 +70,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
             public void onClick(View view) {
                 Toast.makeText(mContext, Integer.toString(position), Toast.LENGTH_SHORT).show();
                 switch (position){
-                    case 1:
+                    case 0:
                         Intent intent = new Intent(view.getContext(), QuestionActivity.class);
                         view.getContext().startActivity(intent);
                         break;

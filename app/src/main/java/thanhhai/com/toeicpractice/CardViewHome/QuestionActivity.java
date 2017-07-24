@@ -31,7 +31,13 @@ public class QuestionActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<PushQuestion>();
+        questionOnlineAdapter = new QuestionOnlineAdapter(arrayList, getApplicationContext());
+        recyclerView.setAdapter(questionOnlineAdapter);
+        updateData();
+        questionOnlineAdapter.notifyDataSetChanged();
+    }
 
+    private void updateData() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("question").addChildEventListener(new ChildEventListener() {
             @Override
@@ -60,9 +66,7 @@ public class QuestionActivity extends AppCompatActivity {
 
             }
         });
-
-        questionOnlineAdapter = new QuestionOnlineAdapter(arrayList, getApplicationContext());
-        recyclerView.setAdapter(questionOnlineAdapter);
-
     }
+
+
 }
