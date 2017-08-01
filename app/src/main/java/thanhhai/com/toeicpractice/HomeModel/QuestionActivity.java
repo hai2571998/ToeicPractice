@@ -43,7 +43,8 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 PushQuestion pushQuestion = dataSnapshot.getValue(PushQuestion.class);
-                arrayList.add(new PushQuestion(pushQuestion.getQuestion(), pushQuestion.getAnswer_A(),pushQuestion.getAnswer_B(), pushQuestion.getAnswer_C(),pushQuestion.getAnswer_D(),0,0,0,0));
+                arrayList.add(new PushQuestion(pushQuestion.getQuestion(), pushQuestion.getAnswer_A(),pushQuestion.getAnswer_B(), pushQuestion.getAnswer_C(),pushQuestion.getAnswer_D(),pushQuestion.getTotalA(),pushQuestion.getTotalB(),pushQuestion.getTotalC(),pushQuestion.getTotalD()));
+                questionOnlineAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -67,6 +68,4 @@ public class QuestionActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

@@ -74,9 +74,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
                         Intent intent = new Intent(view.getContext(), QuestionActivity.class);
                         view.getContext().startActivity(intent);
                         break;
+                    case 3:
+                        Intent intent3 = new Intent(view.getContext(), TestVocabularyActivity.class);
+                        view.getContext().startActivity(intent3);
+                        break;
                     case 4:
                         Intent intent4 = new Intent(view.getContext(), MusicsActivity.class);
                         view.getContext().startActivity(intent4);
+                        break;
                 }
             }
         });
