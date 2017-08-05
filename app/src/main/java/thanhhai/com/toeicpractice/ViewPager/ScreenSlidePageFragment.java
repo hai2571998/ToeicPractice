@@ -104,8 +104,6 @@ public class ScreenSlidePageFragment extends Fragment {
         txtChuthich.setText(getItem(mPageNumber).getGiaithic());
         imgIcon.setImageResource(getResources().getIdentifier(getItem(mPageNumber).getImage() + "", "drawable", "thanhhai.com.toeicpractice"));
 
-
-
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {

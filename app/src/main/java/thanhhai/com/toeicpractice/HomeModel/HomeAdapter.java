@@ -1,7 +1,9 @@
-package thanhhai.com.toeicpractice.CardViewHome;
+package thanhhai.com.toeicpractice.HomeModel;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,8 +20,9 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import thanhhai.com.toeicpractice.R;
+import thanhhai.com.toeicpractice.RoomChat.SplashLoginFragment;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
     private Context mContext;
     private List<Home> homeList;
 
@@ -68,8 +71,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, Integer.toString(position), Toast.LENGTH_SHORT).show();
-                switch (position){
+                switch (position) {
                     case 0:
                         Intent intent = new Intent(view.getContext(), QuestionActivity.class);
                         view.getContext().startActivity(intent);
@@ -82,6 +84,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>{
                         Intent intent4 = new Intent(view.getContext(), MusicsActivity.class);
                         view.getContext().startActivity(intent4);
                         break;
+                    case 5:
+                        SplashLoginFragment splashLoginFragment = new SplashLoginFragment();
+                        FragmentManager manager = ((FragmentActivity) mContext).getSupportFragmentManager();
+                        manager.beginTransaction().replace(R.id.content_main, splashLoginFragment).commit();
                 }
             }
         });

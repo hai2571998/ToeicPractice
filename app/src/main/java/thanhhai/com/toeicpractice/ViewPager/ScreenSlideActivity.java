@@ -9,12 +9,16 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -200,29 +204,35 @@ public class ScreenSlideActivity extends FragmentActivity {
 
     //Dialog hiện thị danh sách những câu trả lời và chưa trả lời
     public void checkAnswer() {
-        final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.check_answer_dialog);
-        dialog.setTitle("Danh sách câu trả lời");
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ScreenSlideActivity.this, R.style.DialogTheme);
+        LayoutInflater inflater = ScreenSlideActivity.this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.check_answer_dialog, null);
+        dialogBuilder.setView(dialogView);
 
         CheckAnswerAdapter answerAdapter = new CheckAnswerAdapter(arr_Ques, this);
-        GridView gvLsQuestion = (GridView) dialog.findViewById(R.id.gvLsQuestion);
+        GridView gvLsQuestion = (GridView) dialogView.findViewById(R.id.gvLsQuestion);
         gvLsQuestion.setAdapter(answerAdapter);
+
+        final AlertDialog alertDialog = dialogBuilder.create();
+        Window window = alertDialog.getWindow();
+        window.setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        window.setGravity(Gravity.CENTER);
 
         gvLsQuestion.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mPager.setCurrentItem(position);
-                dialog.dismiss();
+                alertDialog.dismiss();
             }
         });
 
         Button btnCancle, btnFinish;
-        btnCancle = (Button) dialog.findViewById(R.id.btnCancle);
-        btnFinish = (Button) dialog.findViewById(R.id.btnFinish);
+        btnCancle = (Button) dialogView.findViewById(R.id.btnCancle);
+        btnFinish = (Button) dialogView.findViewById(R.id.btnFinish);
         btnCancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                alertDialog.dismiss();
             }
         });
         btnFinish.setOnClickListener(new View.OnClickListener() {
@@ -230,10 +240,10 @@ public class ScreenSlideActivity extends FragmentActivity {
             public void onClick(View v) {
                 timer.cancel();
                 result();
-                dialog.dismiss();
+                alertDialog.dismiss();
             }
         });
-        dialog.show();
+        alertDialog.show();
     }
 
     public void result() {

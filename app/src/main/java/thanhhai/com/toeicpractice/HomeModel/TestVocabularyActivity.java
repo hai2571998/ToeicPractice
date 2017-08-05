@@ -1,4 +1,4 @@
-package thanhhai.com.toeicpractice.CardViewHome;
+package thanhhai.com.toeicpractice.HomeModel;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +22,7 @@ public class TestVocabularyActivity extends AppCompatActivity {
     private SQLiteDatasource datasource;
     private List<String> lables;
     private ArrayAdapter<String> dataAdapter;
+    private int vitri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,22 +44,24 @@ public class TestVocabularyActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
-        btnKiemTraTu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(TestVocabularyActivity.this, VocabularySlideActivity.class);
-                startActivity(intent);
-            }
-        });
         spLessionVocabulary.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-
+                vitri = position;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+
+        btnKiemTraTu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TestVocabularyActivity.this, VocabularySlideActivity.class);
+                intent.putExtra("num_lession", vitri+1);
+                startActivity(intent);
             }
         });
     }

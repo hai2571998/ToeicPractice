@@ -1,4 +1,4 @@
-package thanhhai.com.toeicpractice.CardViewHome;
+package thanhhai.com.toeicpractice.HomeModel;
 
 import android.content.Context;
 import android.media.AudioManager;

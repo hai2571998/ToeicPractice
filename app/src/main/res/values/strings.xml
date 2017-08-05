@@ -48,4 +48,28 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!-- LogInFragment-->
+    <string name="login_error_message">Please make sure you enter a username and password!</string>
+    <string name="login_error_title">Checking</string>
+    <string name="title_activity_chat">Chat</string>
+
+    <!-- RegisterFragment-->
+    <string name="error_fields_empty">Please make sure you enter display name, email and password!</string>
+    <string name="error_incorrect_email_pass">Provide correct email and password with more than 6 characters.</string>
+    <string name="title_chat">Room Chat English</string>
+    <string name="default_time">12:12 5/5/2017</string>
+    <string name="title_dialog_login">Enter your email address here</string>
+
+    <!-- ChangePassword -->
+    <string name="error_pass_fields_empty">Please make sure you enter current password, new password and verify password!</string>
+    <string name="error_incorrect_pass">Provide correct password with more than 6 characters.</string>
+    <string name="error_incorrect_verify_pass">Please make sure you enter correct verify password.</string>
+    <string name="error_change_password_failed">Change password failed!</string>
+    <string name="error_incorrect_current_pass">You have entered the wrong existing current password.</string>
+    <string name="type1">Câu hỏi trên mô tả từ vựng nào sau đây ?</string>
+    <string name="type2">Câu hỏi trên là nghĩa của từ nào sau đây ?</string>
+    <string name="type3">Hãy chọn đáp án phù hợp nhất với ví dụ trên :</string>
+    <string name="type4">Hãy chọn mô tả đúng nhất của từ vựng trên :</string>
+
 </resources>

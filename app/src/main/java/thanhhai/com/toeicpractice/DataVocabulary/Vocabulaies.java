@@ -9,12 +9,13 @@ public class Vocabulaies {
     private String _type;
     private byte[] _avt;
     private byte[] MediaPlayer;
+    private String answer = "";
 
     public Vocabulaies() {
 
     }
 
-    public Vocabulaies(long _id, long _lesson, String _voc, String _mean, String _phienAm, String _type, byte[] _avt, byte[] mediaPlayer) {
+    public Vocabulaies(long _id, long _lesson, String _voc, String _mean, String _phienAm, String _type, byte[] _avt, byte[] mediaPlayer, String answer) {
         this._id = _id;
         this._lesson = _lesson;
         this._voc = _voc;
@@ -23,6 +24,15 @@ public class Vocabulaies {
         this._type = _type;
         this._avt = _avt;
         MediaPlayer = mediaPlayer;
+        this.answer = answer;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     public long get_id() {

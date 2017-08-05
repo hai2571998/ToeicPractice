@@ -4,16 +4,18 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Câu 1:"
+        android:text="Câu 1: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvNumAns"
-        android:layout_weight="1" />
+        android:textSize="20dp"/>
 
     <TextView
         android:text="A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvAnswer"
-        android:layout_weight="1" />
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/cyan_A700"/>
 </LinearLayout>

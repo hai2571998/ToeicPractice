@@ -24,4 +24,6 @@
     <dimen name="user_icon_height">36dp</dimen>
     <dimen name="card_corner_radius">4dp</dimen>
     <dimen name="card_elevation">4dp</dimen>
+
+    <dimen name="log_in_margin">40dp</dimen>
 </resources>

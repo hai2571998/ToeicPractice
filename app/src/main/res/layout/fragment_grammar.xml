@@ -2,11 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="thanhhai.com.toeicpractice.Fragment.TricksFragment">
+    tools:context="thanhhai.com.toeicpractice.Fragment.GrammarFragment">
 
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdfView"
+    <ListView
+        android:dividerHeight="1dp"
+        android:id="@+id/lvGrammar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+    </ListView>
 
 </FrameLayout>

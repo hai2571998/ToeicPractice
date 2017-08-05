@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import thanhhai.com.toeicpractice.Database.Question;
 import thanhhai.com.toeicpractice.R;
 
-public class CheckAnswerAdapter extends BaseAdapter{
+public class CheckAnswerAdapter extends BaseAdapter {
 
     ArrayList lsData;
     LayoutInflater inflater;
 
     public CheckAnswerAdapter(ArrayList lsData, Context context) {
         this.lsData = lsData;
-        inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -39,24 +39,24 @@ public class CheckAnswerAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Question data=(Question) getItem(position);
+        Question data = (Question) getItem(position);
         ViewHolder holder;
-        if(convertView == null){
-            holder =new ViewHolder();
-            convertView= inflater.inflate(R.layout.item_gridview_list_answer, null);
-            holder.tvNumAns= (TextView) convertView.findViewById(R.id.tvNumAns);
-            holder.tvYourAns=(TextView) convertView.findViewById(R.id.tvAnswer);
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = inflater.inflate(R.layout.item_gridview_list_answer, null);
+            holder.tvNumAns = (TextView) convertView.findViewById(R.id.tvNumAns);
+            holder.tvYourAns = (TextView) convertView.findViewById(R.id.tvAnswer);
             convertView.setTag(holder);
-        }else {
-            holder=(ViewHolder) convertView.getTag();
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
-        int i= position +1;
-        holder.tvNumAns.setText("Câu "+i+": ");
+        int i = position + 1;
+        holder.tvNumAns.setText("Câu " + i + ": ");
         holder.tvYourAns.setText(data.getTraloi());
         return convertView;
     }
 
-    private static class ViewHolder{
+    private static class ViewHolder {
         TextView tvNumAns, tvYourAns;
     }
 

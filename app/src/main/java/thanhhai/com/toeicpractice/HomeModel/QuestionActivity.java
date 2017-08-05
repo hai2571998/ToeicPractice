@@ -1,4 +1,4 @@
-package thanhhai.com.toeicpractice.CardViewHome;
+package thanhhai.com.toeicpractice.HomeModel;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

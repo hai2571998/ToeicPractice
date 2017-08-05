@@ -76,7 +76,6 @@ public class SplashScreen extends AppCompatActivity {
             this.showError("loi eee");
             return;
         }
-
         if (this.isInternet()) {
             this.checkExistDatabase(path);
         } else if (this.isFileExist(path) && this.isInternet() == false) {

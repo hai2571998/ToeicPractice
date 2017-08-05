@@ -3,6 +3,7 @@
     package="thanhhai.com.toeicpractice">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -21,7 +22,7 @@
 
         <!-- Splash screen -->
         <activity
-            android:name=".SplashScreen.SplashScreen"
+            android:name="thanhhai.com.toeicpractice.SplashScreen.SplashScreen"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -32,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="thanhhai.com.toeicpractice.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -43,28 +44,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ViewPager.ScreenSlideActivity"
+            android:name="thanhhai.com.toeicpractice.ViewPager.ScreenSlideActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CheckAnswer.TestDoneActivity"
+            android:name="thanhhai.com.toeicpractice.CheckAnswer.TestDoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DataVocabulary.VocabularyActivity"
+            android:name="thanhhai.com.toeicpractice.DataVocabulary.VocabularyActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".FCM.MyFirebaseMessagingService">
+        <service android:name="thanhhai.com.toeicpractice.FCM.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".FCM.MyFirebaseIDService">
+        <service android:name="thanhhai.com.toeicpractice.FCM.MyFirebaseIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name=".CardViewHome.QuestionActivity" />
-        <activity android:name=".CardViewHome.MusicsActivity"></activity>
+        <activity android:name="thanhhai.com.toeicpractice.HomeModel.QuestionActivity" />
+        <activity android:name="thanhhai.com.toeicpractice.HomeModel.MusicsActivity" />
+        <activity android:name="thanhhai.com.toeicpractice.HomeModel.TestVocabularyActivity" />
+        <activity android:name="thanhhai.com.toeicpractice.ViewPager.VocabularySlideActivity" />
+        <activity android:name="thanhhai.com.toeicpractice.HomeModel.GrammarActivity"></activity>
     </application>
 
 </manifest>

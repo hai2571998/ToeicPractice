@@ -5,9 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import thanhhai.com.toeicpractice.DataVocabulary.Vocabulaies;
 import thanhhai.com.toeicpractice.DataVocabulary.Lessons;
+import thanhhai.com.toeicpractice.DataVocabulary.Vocabulaies;
 
 public class SQLiteDatasource {
 
@@ -22,7 +23,7 @@ public class SQLiteDatasource {
 
     public ArrayList<Vocabulaies> getVocInLesson(int _lesson) {
         String selection = "_lesson = " + _lesson;
-        Cursor cursor = database.query(VocabularyHelper.TABLE_NAME_VOC, null, selection, null, null, null, null);
+        Cursor cursor = database.query(VocabularyHelper.TABLE_NAME_VOC, null, selection, null, null, null, "RANDOM()", null);
         return parseCursorVocInLesson(cursor);
     }
 
@@ -111,5 +112,18 @@ public class SQLiteDatasource {
             }
         }
         return list;
+    }
+
+    public List<String> getAllLabels() {
+        List<String> labels = new ArrayList<String>();
+        Cursor cursor = database.query(VocabularyHelper.TABLE_NAME_LESSON, null, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                labels.add(cursor.getLong(1) + " - " + cursor.getString(2));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        database.close();
+        return labels;
     }
 }

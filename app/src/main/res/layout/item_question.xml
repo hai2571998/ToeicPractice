@@ -1,54 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txtQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Question"/>
+        android:text="Question" />
 
     <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
-        <LinearLayout
+        <RadioButton
+            android:id="@+id/rad_ans_a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="Câu A" />
 
-            <RadioButton
-                android:id="@+id/rad_ans_a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Câu A" />
-
-            <RadioButton
-                android:id="@+id/rad_ans_b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Câu B" />
-        </LinearLayout>
-
-        <LinearLayout
+        <RadioButton
+            android:id="@+id/rad_ans_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="Câu B" />
 
-            <RadioButton
-                android:id="@+id/rad_ans_c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Câu C" />
+        <RadioButton
+            android:id="@+id/rad_ans_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Câu C" />
 
-            <RadioButton
-                android:id="@+id/rad_ans_d"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Câu D" />
-        </LinearLayout>
+        <RadioButton
+            android:id="@+id/rad_ans_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Câu D" />
     </RadioGroup>
 
 </LinearLayout>

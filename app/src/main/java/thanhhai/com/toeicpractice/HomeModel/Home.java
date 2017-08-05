@@ -1,4 +1,4 @@
-package thanhhai.com.toeicpractice.CardViewHome;
+package thanhhai.com.toeicpractice.HomeModel;
 
 public class Home {
     private String name;

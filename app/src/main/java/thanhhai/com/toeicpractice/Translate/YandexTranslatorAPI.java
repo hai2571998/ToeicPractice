@@ -1,6 +1,5 @@
 package thanhhai.com.toeicpractice.Translate;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 import org.json.simple.JSONArray;
@@ -13,10 +12,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
-
-import thanhhai.com.toeicpractice.MainActivity;
-import thanhhai.com.toeicpractice.R;
-import thanhhai.com.toeicpractice.ViewPager.ScreenSlideActivity;
 
 /**
  * Makes the generic Yandex API calls. Different service classes can then

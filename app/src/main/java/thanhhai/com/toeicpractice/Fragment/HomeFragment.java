@@ -17,8 +17,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import thanhhai.com.toeicpractice.CardViewHome.Home;
-import thanhhai.com.toeicpractice.CardViewHome.HomeAdapter;
+import thanhhai.com.toeicpractice.HomeModel.Home;
+import thanhhai.com.toeicpractice.HomeModel.HomeAdapter;
 import thanhhai.com.toeicpractice.R;
 
 public class HomeFragment extends Fragment {
@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
                 R.drawable.level3,
                 R.drawable.test_vocabulary,
                 R.drawable.music_home,
-                R.drawable.support};
+                R.drawable.roomchat};
 
         Home a = new Home("Question Online", "List 1", covers[0]);
         homeList.add(a);
@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
         a = new Home("Music", "List 5", covers[4]);
         homeList.add(a);
 
-        a = new Home("Support Online", "List 6", covers[5]);
+        a = new Home("Room Chat English", "List 6", covers[5]);
         homeList.add(a);
 
         adapter.notifyDataSetChanged();
