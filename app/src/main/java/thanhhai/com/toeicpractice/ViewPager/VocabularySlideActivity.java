@@ -38,7 +38,7 @@ public class VocabularySlideActivity extends FragmentActivity {
     private ArrayList<Vocabulaies> arr_vocabulary;
 
     private TextView txtKiemTra, txtTimer, txtScore;
-    private Button cancel_btn, finish_btn, btnExit_Vocabulary, btnAgain_Vocabulary;
+    private Button cancel_btn, finish_btn, btnExit_Vocabulary;
     private int totalTimer;
     private CounterClass timer;
     private int num_lession;
@@ -141,21 +141,6 @@ public class VocabularySlideActivity extends FragmentActivity {
                 builder.show();
             }
         });
-
-        btnAgain_Vocabulary = (Button) dialogView.findViewById(R.id.btnAgain_Vocabulary);
-        btnAgain_Vocabulary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                refresh();
-                finish();
-            }
-        });
-    }
-
-    private void refresh() {
-        for (int i = 0; i < arr_vocabulary.size(); i++) {
-            arr_vocabulary.get(i).setAnswer("");
-        }
     }
 
     public ArrayList<Vocabulaies> getDataVocabulary() {
@@ -165,7 +150,7 @@ public class VocabularySlideActivity extends FragmentActivity {
     @Override
     public void onBackPressed() {
         if (mPager.getCurrentItem() == 0) {
-            super.onBackPressed();
+            dialogExit();
         } else {
             mPager.setCurrentItem(mPager.getCurrentItem() - 1);
         }
@@ -243,11 +228,27 @@ public class VocabularySlideActivity extends FragmentActivity {
         if (mPager.getCurrentItem() >= 4) mPager.setCurrentItem(mPager.getCurrentItem() - 4);
         else if (mPager.getCurrentItem() <= 4) mPager.setCurrentItem(mPager.getCurrentItem() + 4);
         finish_btn.setVisibility(View.GONE);
-        btnAgain_Vocabulary.setVisibility(View.VISIBLE);
         btnExit_Vocabulary.setVisibility(View.VISIBLE);
     }
 
-    private void again() {
+    public void dialogExit() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(VocabularySlideActivity.this);
+        builder.setIcon(R.drawable.exit);
+        builder.setTitle("Notification");
+        builder.setMessage("Do you want to exit?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                timer.cancel();
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
 
+        builder.show();
     }
 }

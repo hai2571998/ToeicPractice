@@ -28,7 +28,7 @@ public class TestVocabularyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_vocabulary);
-
+        setTitle("Test Vocabulary");
         addControls();
         addEvents();
     }
@@ -60,7 +60,7 @@ public class TestVocabularyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TestVocabularyActivity.this, VocabularySlideActivity.class);
-                intent.putExtra("num_lession", vitri+1);
+                intent.putExtra("num_lession", vitri + 1);
                 startActivity(intent);
             }
         });

@@ -7,6 +7,7 @@
     tools:context="thanhhai.com.toeicpractice.HomeModel.TestVocabularyActivity">
 
     <TextView
+        android:id="@+id/txtVocabulary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -20,10 +21,17 @@
         android:id="@+id/lnTestVocabulary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:orientation="vertical"
         android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_vocabulary"
+            android:layout_above="@+id/txtVocabulary"
+            android:layout_centerHorizontal="true" />
 
         <Spinner
             android:layout_marginTop="10dp"

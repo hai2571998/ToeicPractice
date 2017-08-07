@@ -2,8 +2,6 @@ package thanhhai.com.toeicpractice.HomeModel;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,7 +18,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import thanhhai.com.toeicpractice.R;
-import thanhhai.com.toeicpractice.RoomChat.SplashLoginFragment;
+import thanhhai.com.toeicpractice.RoomChat.SplashLoginActivity;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
     private Context mContext;
@@ -85,9 +83,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                         view.getContext().startActivity(intent4);
                         break;
                     case 5:
-                        SplashLoginFragment splashLoginFragment = new SplashLoginFragment();
-                        FragmentManager manager = ((FragmentActivity) mContext).getSupportFragmentManager();
-                        manager.beginTransaction().replace(R.id.content_main, splashLoginFragment).commit();
+                        Intent intent5 = new Intent(view.getContext(), SplashLoginActivity.class);
+                        view.getContext().startActivity(intent5);
                 }
             }
         });

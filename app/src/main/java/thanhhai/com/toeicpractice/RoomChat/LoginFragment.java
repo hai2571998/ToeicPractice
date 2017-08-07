@@ -40,7 +40,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +49,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((SplashLoginActivity) getActivity()).getSupportActionBar().setTitle("Login Account");
         setAuthInstance();
         addControls();
         addevents();
@@ -125,7 +125,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     private void goToRegisterFragment() {
         RegisterFragment registerFragment = new RegisterFragment();
         FragmentManager manager = getActivity().getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, registerFragment).addToBackStack(null).commit();
+        manager.beginTransaction().replace(R.id.main, registerFragment).addToBackStack(null).commit();
     }
 
     private void onLogInUser(String userEmail, String userPassword) {
@@ -140,7 +140,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         saveSharedPreferencesOfUser(user);
         ChatRoomFragment chatRoomFragment = new ChatRoomFragment();
         FragmentManager manager = getActivity().getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, chatRoomFragment).addToBackStack(null).commit();
+        manager.beginTransaction().replace(R.id.main, chatRoomFragment).commit();
     }
 
     public void showAlertDialog(String message, boolean isCancelable) {

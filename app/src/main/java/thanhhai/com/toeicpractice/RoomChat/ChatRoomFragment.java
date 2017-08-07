@@ -55,6 +55,8 @@ public class ChatRoomFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ((SplashLoginActivity) getActivity()).getSupportActionBar().setTitle("Chat Room English");
         mChatRoomRecyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view_chat_room);
         mUserMessageChatText = (EditText) getActivity().findViewById(R.id.edit_text_message_chat_room);
         btnSendMessage = (Button) getActivity().findViewById(R.id.btn_send_message_chat_room);
@@ -99,7 +101,7 @@ public class ChatRoomFragment extends Fragment implements View.OnClickListener {
 
     public void notifyMessageChatRoomAdapter(ChatMessage newMessage) {
         messageChatAdapter.refillAdapter(newMessage);
-        mChatRoomRecyclerView.scrollToPosition(messageChatAdapter.getItemCount()-1);
+        mChatRoomRecyclerView.scrollToPosition(messageChatAdapter.getItemCount() - 1);
     }
 
     public String getDisplayName() {
@@ -132,12 +134,11 @@ public class ChatRoomFragment extends Fragment implements View.OnClickListener {
         messageChatListener = messageChatRoomDatabase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if(dataSnapshot.exists()){
+                if (dataSnapshot.exists()) {
                     ChatMessage chatMessage = dataSnapshot.getValue(ChatMessage.class);
-                    if(chatMessage.getUserId().equals(currentUserId)){
+                    if (chatMessage.getUserId().equals(currentUserId)) {
                         chatMessage.setRecipientOrSenderStatus(MessageChatAdapter.SENDER);
-                    }
-                    else{
+                    } else {
                         chatMessage.setRecipientOrSenderStatus(MessageChatAdapter.RECIPIENT);
                     }
                     notifyMessageChatRoomAdapter(chatMessage);
@@ -171,7 +172,7 @@ public class ChatRoomFragment extends Fragment implements View.OnClickListener {
     }
 
     public void removeEventListener() {
-        if(messageChatListener != null) {
+        if (messageChatListener != null) {
             messageChatRoomDatabase.removeEventListener(messageChatListener);
         }
     }
@@ -188,13 +189,13 @@ public class ChatRoomFragment extends Fragment implements View.OnClickListener {
             case R.id.nav_change_password:
                 ChangePasswordFragment changePasswordFragment = new ChangePasswordFragment();
                 FragmentManager manager = getActivity().getSupportFragmentManager();
-                manager.beginTransaction().replace(R.id.content_main, changePasswordFragment).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.main, changePasswordFragment).addToBackStack(null).commit();
                 return false;
             case R.id.nav_log_out:
                 onCheckRememberPassword();
                 LoginFragment loginFragment = new LoginFragment();
                 FragmentManager manager1 = getActivity().getSupportFragmentManager();
-                manager1.beginTransaction().replace(R.id.content_main, loginFragment).addToBackStack(null).commit();
+                manager1.beginTransaction().replace(R.id.main, loginFragment).commit();
                 return false;
             default:
                 break;

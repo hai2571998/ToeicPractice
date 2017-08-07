@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="2dip">
@@ -27,23 +27,26 @@
 
     <EditText
         android:id="@+id/txtEmail"
-        android:layout_width="309dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Your Email"/>
+        android:hint="Your Email" />
 
     <EditText
         android:id="@+id/txtFeedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Any other feedback (optical)"/>
+        android:hint="Any other feedback (optical)" />
 
     <Button
         android:id="@+id/rank_dialog_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"
-        android:focusable="false"
-        android:layout_margin="5dip"
-        android:textSize="20dip"
-        android:layout_width="fill_parent" />
+        android:layout_marginLeft="2dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:background="@color/colorPrimary"
+        android:text="Submit Rating"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorBackground" />
 
 </LinearLayout>

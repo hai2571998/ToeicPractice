@@ -159,13 +159,13 @@ public class TestVocabularyFragment extends Fragment {
         imgRightorWrong.setVisibility(View.VISIBLE);
         if (result.equals(DapAn)) {
             imgRightorWrong.setImageResource(R.drawable.right);
-            txtKQ.setText("Đán án của đúng " + result + " trùng khời của đán án của bạn " + DapAn);
+            txtKQ.setText("Đán án của đúng \"" + result + "\" trùng khời của đán án của bạn " + DapAn);
         } else {
             imgRightorWrong.setImageResource(R.drawable.wrong);
             if (DapAn.equals("")) {
-                txtKQ.setText("Đán án của đúng " + result + ". Bạn không nên để trống");
+                txtKQ.setText("Đán án của đúng \"" + result + "\". Bạn không nên để trống");
             } else {
-                txtKQ.setText("Đán án của đúng " + result + " không trùng khời của đán án của bạn " + DapAn);
+                txtKQ.setText("Đán án của đúng \"" + result + "\" không trùng khời của đán án của bạn " + DapAn);
             }
         }
     }

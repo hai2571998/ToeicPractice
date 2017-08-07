@@ -22,7 +22,7 @@
 
         <!-- Splash screen -->
         <activity
-            android:name="thanhhai.com.toeicpractice.SplashScreen.SplashScreen"
+            android:name=".SplashScreen.SplashScreen"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="thanhhai.com.toeicpractice.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -44,31 +44,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="thanhhai.com.toeicpractice.ViewPager.ScreenSlideActivity"
+            android:name=".ViewPager.ScreenSlideActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="thanhhai.com.toeicpractice.CheckAnswer.TestDoneActivity"
+            android:name=".CheckAnswer.TestDoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="thanhhai.com.toeicpractice.DataVocabulary.VocabularyActivity"
+            android:name=".DataVocabulary.VocabularyActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name="thanhhai.com.toeicpractice.FCM.MyFirebaseMessagingService">
+        <service android:name=".FCM.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="thanhhai.com.toeicpractice.FCM.MyFirebaseIDService">
+        <service android:name=".FCM.MyFirebaseIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name="thanhhai.com.toeicpractice.HomeModel.QuestionActivity" />
-        <activity android:name="thanhhai.com.toeicpractice.HomeModel.MusicsActivity" />
-        <activity android:name="thanhhai.com.toeicpractice.HomeModel.TestVocabularyActivity" />
-        <activity android:name="thanhhai.com.toeicpractice.ViewPager.VocabularySlideActivity" />
-        <activity android:name="thanhhai.com.toeicpractice.HomeModel.GrammarActivity"></activity>
+        <activity android:name=".HomeModel.QuestionActivity" />
+        <activity android:name=".HomeModel.MusicsActivity" />
+        <activity android:name=".HomeModel.TestVocabularyActivity" />
+        <activity android:name=".ViewPager.VocabularySlideActivity" />
+        <activity android:name=".HomeModel.GrammarActivity" />
+        <activity android:name=".RoomChat.SplashLoginActivity"></activity>
     </application>
 
 </manifest>

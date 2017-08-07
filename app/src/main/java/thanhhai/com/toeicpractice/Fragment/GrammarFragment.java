@@ -55,6 +55,7 @@ public class GrammarFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        arr.clear();
         lvGrammar = (ListView) getActivity().findViewById(R.id.lvGrammar);
         new GrammarAsyncTask().execute(100000);
         lvGrammar.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -45,6 +45,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((SplashLoginActivity) getActivity()).getSupportActionBar().setTitle("Register Account");
         mAuth = FirebaseAuth.getInstance();
         addControls();
         addEvents();
@@ -106,7 +107,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     public void onSignUpSuccess() {
         LoginFragment loginFragment = new LoginFragment();
         FragmentManager manager = getActivity().getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, loginFragment).addToBackStack(null).commit();
+        manager.beginTransaction().replace(R.id.main, loginFragment).commit();
     }
 
     public void showAlertDialog(String message, boolean isCancelable){

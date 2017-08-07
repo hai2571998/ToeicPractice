@@ -42,6 +42,7 @@ public class ChangePasswordFragment extends Fragment implements View.OnClickList
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((SplashLoginActivity) getActivity()).getSupportActionBar().setTitle("Change Password");
         txtCurrentPassword = (EditText) getActivity().findViewById(R.id.edit_text_current_password);
         txtNewPassword = (EditText) getActivity().findViewById(R.id.edit_text_new_password);
         txtVerifyPassword = (EditText) getActivity().findViewById(R.id.edit_text_verify_password);

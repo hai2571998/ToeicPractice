@@ -123,7 +123,6 @@ public class ScreenSlideActivity extends FragmentActivity {
                 mPager.setCurrentItem(mPager.getCurrentItem()-1, true);
             }
         });
-
         xuLyFloatActionButton();
     }
 
