@@ -60,22 +60,22 @@ public class HomeFragment extends Fragment {
                 R.drawable.music_home,
                 R.drawable.roomchat};
 
-        Home a = new Home("Question Online", "List 1", covers[0]);
+        Home a = new Home("Question Online", covers[0]);
         homeList.add(a);
 
-        a = new Home("Chat Bot", "List 2", covers[1]);
+        a = new Home("Chat Bot", covers[1]);
         homeList.add(a);
 
-        a = new Home("Random Question", "List 3", covers[2]);
+        a = new Home("Random Question", covers[2]);
         homeList.add(a);
 
-        a = new Home("Vocabulary Test", "List 4", covers[3]);
+        a = new Home("Vocabulary Test", covers[3]);
         homeList.add(a);
 
-        a = new Home("Music", "List 5", covers[4]);
+        a = new Home("Music", covers[4]);
         homeList.add(a);
 
-        a = new Home("Room Chat English", "List 6", covers[5]);
+        a = new Home("Room Chat English", covers[5]);
         homeList.add(a);
 
         adapter.notifyDataSetChanged();

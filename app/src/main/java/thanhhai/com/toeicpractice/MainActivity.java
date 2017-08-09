@@ -136,7 +136,6 @@ public class MainActivity extends AppCompatActivity
 
     private void xuLyBottomNavigation() {
         FragmentManager manager = getSupportFragmentManager();
-        //manager.beginTransaction().replace(R.id.content_main, bottomNavigationFragment, bottomNavigationFragment.getTag()).commit();
-        manager.beginTransaction().replace(R.id.content_main, bottomNavigationFragment).addToBackStack("root").commit();
+        manager.beginTransaction().replace(R.id.content_main, bottomNavigationFragment, bottomNavigationFragment.getTag()).commit();
     }
 }
