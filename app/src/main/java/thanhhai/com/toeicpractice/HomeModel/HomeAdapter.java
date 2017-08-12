@@ -58,6 +58,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                         Intent intent = new Intent(view.getContext(), QuestionActivity.class);
                         view.getContext().startActivity(intent);
                         break;
+                    case 1:
+                        break;
+                    case 2:
+                        Intent intent2 = new Intent(view.getContext(), VideoYoutubeActivity.class);
+                        view.getContext().startActivity(intent2);
+                        break;
                     case 3:
                         Intent intent3 = new Intent(view.getContext(), TestVocabularyActivity.class);
                         view.getContext().startActivity(intent3);

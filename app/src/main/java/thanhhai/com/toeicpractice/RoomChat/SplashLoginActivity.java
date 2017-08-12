@@ -20,7 +20,7 @@ public class SplashLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_login);
-
+        getSupportActionBar().hide();
         mAuth = FirebaseAuth.getInstance();
         if (isCheckRememberPassword()) {
             handleLogin(getUserEmailPref(), getUserPasswordPref());

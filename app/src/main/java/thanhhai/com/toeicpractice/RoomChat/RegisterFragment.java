@@ -46,6 +46,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ((SplashLoginActivity) getActivity()).getSupportActionBar().setTitle("Register Account");
+        ((SplashLoginActivity) getActivity()).getSupportActionBar().show();
         mAuth = FirebaseAuth.getInstance();
         addControls();
         addEvents();
@@ -79,7 +80,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     }
 
     private void onRegisterUser() {
-        if(getUserDisplayName().equals("") || getUserEmail().equals("") || getUserPassword().equals("")){
+        if(getUserDisplayName().equals("") || getUserEmail().equals("") || getUserPassword().equals("") || getUserDisplayName().equals("Admin") || getUserDisplayName().equals("admin")){
             showFieldsAreRequired();
         }else if(isIncorrectEmail(getUserEmail()) || isIncorrectPassword(getUserPassword())) {
             showIncorrectEmailPassword();

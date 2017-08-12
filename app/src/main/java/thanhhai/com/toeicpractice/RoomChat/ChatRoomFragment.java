@@ -57,6 +57,8 @@ public class ChatRoomFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         ((SplashLoginActivity) getActivity()).getSupportActionBar().setTitle("Chat Room English");
+        ((SplashLoginActivity) getActivity()).getSupportActionBar().show();
+
         mChatRoomRecyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view_chat_room);
         mUserMessageChatText = (EditText) getActivity().findViewById(R.id.edit_text_message_chat_room);
         btnSendMessage = (Button) getActivity().findViewById(R.id.btn_send_message_chat_room);

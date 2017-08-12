@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
         int[] covers = new int[]{
                 R.drawable.question,
                 R.drawable.chatbot,
-                R.drawable.level3,
+                R.drawable.videotoiec,
                 R.drawable.test_vocabulary,
                 R.drawable.music_home,
                 R.drawable.roomchat};
@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
         a = new Home("Chat Bot", covers[1]);
         homeList.add(a);
 
-        a = new Home("Random Question", covers[2]);
+        a = new Home("Video Toeic", covers[2]);
         homeList.add(a);
 
         a = new Home("Vocabulary Test", covers[3]);

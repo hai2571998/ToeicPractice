@@ -49,6 +49,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((SplashLoginActivity) getActivity()).getSupportActionBar().show();
         ((SplashLoginActivity) getActivity()).getSupportActionBar().setTitle("Login Account");
         setAuthInstance();
         addControls();

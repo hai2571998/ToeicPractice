@@ -69,12 +69,6 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
                     }
                 });
 
-
-                //String postId = databaseReference.getKey();
-                //databaseReference.child("question").getKey();
-                //Log.e("getKey",postId.toString());
-                //databaseReference.child("question").child("-KppZMkMSkp8TRcbWIN0").child("totalA").setValue(totalA);
-
             }
         });
 

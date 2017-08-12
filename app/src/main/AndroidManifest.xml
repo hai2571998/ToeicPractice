@@ -69,7 +69,13 @@
         <activity android:name=".HomeModel.TestVocabularyActivity" />
         <activity android:name=".ViewPager.VocabularySlideActivity" />
         <activity android:name=".HomeModel.GrammarActivity" />
-        <activity android:name=".RoomChat.SplashLoginActivity"></activity>
+        <activity android:name=".RoomChat.SplashLoginActivity" />
+        <activity
+            android:name=".HomeModel.VideoYoutubeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".HomeModel.PlayVideoActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
