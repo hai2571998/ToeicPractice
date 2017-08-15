@@ -30,10 +30,6 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/action_lienhe"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="Trợ giúp Online" />
-                <item
                     android:id="@+id/action_search"
                     android:icon="@drawable/ic_menu_send"
                     android:title="Tìm kiếm câu hỏi" />

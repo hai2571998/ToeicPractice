@@ -1,44 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtQuestion"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Question" />
+        android:layout_margin="10dp">
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
-
-        <RadioButton
-            android:id="@+id/rad_ans_a"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            style="@style/Widget.CardContent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Câu A" />
+            android:background="@drawable/cardview_border">
 
-        <RadioButton
-            android:id="@+id/rad_ans_b"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Câu B" />
+            <TextView
+                android:id="@+id/txtQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Question"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:textColor="@color/colorPrimary" />
 
-        <RadioButton
-            android:id="@+id/rad_ans_c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Câu C" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/rad_ans_d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Câu D" />
-    </RadioGroup>
+                <RadioButton
+                    android:id="@+id/rad_ans_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Câu A" />
+
+                <RadioButton
+                    android:id="@+id/rad_ans_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Câu B" />
+
+                <RadioButton
+                    android:id="@+id/rad_ans_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Câu C" />
+
+                <RadioButton
+                    android:id="@+id/rad_ans_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Câu D" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

@@ -75,5 +75,4 @@
         android:text="Cancel"
         android:textColor="@color/white" />
 
-
 </LinearLayout>

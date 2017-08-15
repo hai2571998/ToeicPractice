@@ -7,6 +7,10 @@
     tools:context="thanhhai.com.toeicpractice.HomeModel.TestVocabularyActivity">
 
     <TextView
+        android:padding="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/cardview_border"
         android:id="@+id/txtVocabulary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,8 +18,9 @@
         android:textStyle="bold"
         android:layout_above="@+id/lnTestVocabulary"
         android:layout_centerHorizontal="true"
-        android:text="Mời bạn chọn bài bên dưới để kiểm tra từ vựng nhé!"
-        android:textSize="25dp" />
+        android:text="@string/vocabulary_test"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"/>
 
     <LinearLayout
         android:id="@+id/lnTestVocabulary"

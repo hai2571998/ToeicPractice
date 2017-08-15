@@ -20,19 +20,19 @@ import thanhhai.com.toeicpractice.HomeModel.PushQuestion;
 import thanhhai.com.toeicpractice.R;
 
 
-public class ContactFragment extends Fragment {
+public class QuestionOnlineFragment extends Fragment {
     private EditText txtCauHoi, txtAnswer_A, txtAnswer_B, txtAnswer_C, txtAnswer_D;
     private Button btnPushQuestion;
     private String valCauHoi, valAnswerA, valAnswerB, valAnswerC, valAnswerD;
 
-    public ContactFragment() {
+    public QuestionOnlineFragment() {
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_contact, container, false);
+        return inflater.inflate(R.layout.fragment_question_online, container, false);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class ContactFragment extends Fragment {
 
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
 
-                if (!valCauHoi.equals("") || !valAnswerA.equals("") || !valAnswerB.equals("") || !txtAnswer_C.equals("") || !valAnswerD.equals("")) {
+                if (!valCauHoi.equals("") && !valAnswerA.equals("") && !valAnswerB.equals("") && !txtAnswer_C.equals("") && !valAnswerD.equals("")) {
                     Log.e("val", valCauHoi+valAnswerA+valAnswerB+valAnswerC+valAnswerD);
                     PushQuestion pushQuestion = new PushQuestion(valCauHoi, valAnswerA, valAnswerB, valAnswerC, valAnswerD, 0, 0, 0, 0);
                     ref.child("question").push().setValue(pushQuestion, new DatabaseReference.CompletionListener() {
@@ -65,8 +65,13 @@ public class ContactFragment extends Fragment {
                         }
                     });
                 } else {
-                    Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Bạn vui lòng nhập đầy đủ thông tin câu hỏi, không được bỏ trống!!!", Toast.LENGTH_SHORT).show();
                 }
+                txtCauHoi.setText("");
+                txtAnswer_A.setText("");
+                txtAnswer_B.setText("");
+                txtAnswer_C.setText("");
+                txtAnswer_D.setText("");
             }
         });
     }

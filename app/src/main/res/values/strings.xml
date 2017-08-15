@@ -11,7 +11,7 @@
     <string name="tab2">TRICKS</string>
     <string name="tab4">SETTINGS</string>
     <string name="tab3">VOCABULARY</string>
-    <string name="tab5">CONTACT</string>
+    <string name="tab5">QUESTION</string>
 
     <string name="splash">Thanh Hải IT Copyright  (C) 2017</string>
 
@@ -67,5 +67,13 @@
     <string name="error_incorrect_verify_pass">Please make sure you enter correct verify password.</string>
     <string name="error_change_password_failed">Change password failed!</string>
     <string name="error_incorrect_current_pass">You have entered the wrong existing current password.</string>
+
+    <string name="enter_question">Enter the question you want to send</string>
+    <string name="enter_answer_a">Enter answer A</string>
+    <string name="enter_answer_b">Enter answer B</string>
+    <string name="enter_answer_c">Enter answer C</string>
+    <string name="enter_answer_d">Enter answer D</string>
+
+    <string name="vocabulary_test">Mời bạn chọn bài bên dưới để kiểm tra từ vựng nhé!</string>
 
 </resources>

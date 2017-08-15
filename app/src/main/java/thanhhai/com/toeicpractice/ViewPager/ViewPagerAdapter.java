@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import thanhhai.com.toeicpractice.Fragment.ContactFragment;
+import thanhhai.com.toeicpractice.Fragment.QuestionOnlineFragment;
 import thanhhai.com.toeicpractice.Fragment.HomeFragment;
 import thanhhai.com.toeicpractice.Fragment.SettingFragment;
 import thanhhai.com.toeicpractice.Fragment.GrammarFragment;
@@ -25,7 +25,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 return new LessonFragment();
             case 3:
-                return new ContactFragment();
+                return new QuestionOnlineFragment();
             case 4:
                 return new SettingFragment();
             default:
