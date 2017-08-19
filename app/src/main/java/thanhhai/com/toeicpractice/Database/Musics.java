@@ -6,10 +6,18 @@ public class Musics {
     private String _urlsong;
     private String _author;
 
+    public String get_author() {
+        return _author;
+    }
+
+    public void set_author(String _author) {
+        this._author = _author;
+    }
+
     public Musics() {
     }
 
-    public Musics(int _id, String _song, String _urlsong, String _author, String _duration) {
+    public Musics(int _id, String _song, String _urlsong, String _author) {
         this._id = _id;
         this._song = _song;
         this._urlsong = _urlsong;
@@ -38,13 +46,5 @@ public class Musics {
 
     public void set_urlsong(String _urlsong) {
         this._urlsong = _urlsong;
-    }
-
-    public String get_author() {
-        return _author;
-    }
-
-    public void set_author(String _author) {
-        this._author = _author;
     }
 }

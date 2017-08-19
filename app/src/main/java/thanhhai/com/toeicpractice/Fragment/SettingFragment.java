@@ -113,6 +113,7 @@ public class SettingFragment extends Fragment {
                 rankDialog = new Dialog(getContext());
                 rankDialog.setContentView(R.layout.rank_dialog);
                 rankDialog.setCancelable(true);
+                rankDialog.setTitle("Rate Application");
                 ratingBar = (RatingBar)rankDialog.findViewById(R.id.dialog_ratingbar);
                 txtFeedback = (EditText) rankDialog.findViewById(R.id.txtFeedback);
                 txtEmail = (EditText) rankDialog.findViewById(R.id.txtEmail);

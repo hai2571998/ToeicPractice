@@ -1,9 +1,12 @@
 package thanhhai.com.toeicpractice.HomeModel;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -20,14 +23,16 @@ public class QuestionActivity extends AppCompatActivity {
     private ArrayList<PushQuestion> arrayList;
     private QuestionOnlineAdapter questionOnlineAdapter;
     private RecyclerView recyclerView;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         setTitle("Question Online");
-
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("Loading...");
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_question);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -35,12 +40,11 @@ public class QuestionActivity extends AppCompatActivity {
         arrayList = new ArrayList<PushQuestion>();
         questionOnlineAdapter = new QuestionOnlineAdapter(arrayList, getApplicationContext());
         recyclerView.setAdapter(questionOnlineAdapter);
-        updateData();
+        new QuestionTask().execute();
         questionOnlineAdapter.notifyDataSetChanged();
     }
 
     private void updateData() {
-        databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("question").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -69,5 +73,35 @@ public class QuestionActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private class QuestionTask extends AsyncTask<String,Void,Void>{
+
+        @Override
+        protected Void doInBackground(String... strings) {
+            try{
+                updateData();
+            }catch (Exception ex){
+                Log.e("LOI", ex.toString());
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            dialog.dismiss();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
     }
 }

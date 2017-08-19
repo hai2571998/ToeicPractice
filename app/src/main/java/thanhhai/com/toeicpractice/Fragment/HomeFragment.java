@@ -54,28 +54,20 @@ public class HomeFragment extends Fragment {
     private void prepareHome() {
         int[] covers = new int[]{
                 R.drawable.question,
-                R.drawable.chatbot,
                 R.drawable.videotoiec,
                 R.drawable.test_vocabulary,
-                R.drawable.music_home,
                 R.drawable.roomchat};
 
         Home a = new Home("Question Online", covers[0]);
         homeList.add(a);
 
-        a = new Home("Chat Bot", covers[1]);
+        a = new Home("Video Toeic", covers[1]);
         homeList.add(a);
 
-        a = new Home("Video Toeic", covers[2]);
+        a = new Home("Vocabulary Test", covers[2]);
         homeList.add(a);
 
-        a = new Home("Vocabulary Test", covers[3]);
-        homeList.add(a);
-
-        a = new Home("Music", covers[4]);
-        homeList.add(a);
-
-        a = new Home("Room Chat English", covers[5]);
+        a = new Home("Room Chat English", covers[3]);
         homeList.add(a);
 
         adapter.notifyDataSetChanged();

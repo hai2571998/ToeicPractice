@@ -235,7 +235,7 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
     }
 
     private void showDialog(int vitri, View view) {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder((QuestionActivity) view.getContext());
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(view.getContext());
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View dialogView = inflater.inflate(R.layout.dialog_chart_result, null);
         dialogBuilder.setView(dialogView);

@@ -37,6 +37,7 @@ public class GrammarFragment extends Fragment {
     ListView lvGrammar;
     ProgressDialog progressDialog;
     ArrayList<String> mListTitle;
+    ArrayAdapter adapter;
 
     ArrayList<String> arr = new ArrayList();
     Document doc = null;
@@ -93,7 +94,7 @@ public class GrammarFragment extends Fragment {
             super.onPostExecute(aVoid);
             mListTitle = new ArrayList();
             mListTitle = arr;
-            ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.grammar_item, arr);
+            adapter = new ArrayAdapter(getContext(), R.layout.grammar_item, arr);
             lvGrammar.setAdapter(adapter);
         }
     }

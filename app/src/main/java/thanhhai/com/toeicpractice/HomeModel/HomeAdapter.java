@@ -59,22 +59,16 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                         view.getContext().startActivity(intent);
                         break;
                     case 1:
+                        Intent intent1 = new Intent(view.getContext(), VideoYoutubeActivity.class);
+                        view.getContext().startActivity(intent1);
                         break;
                     case 2:
-                        Intent intent2 = new Intent(view.getContext(), VideoYoutubeActivity.class);
+                        Intent intent2 = new Intent(view.getContext(), TestVocabularyActivity.class);
                         view.getContext().startActivity(intent2);
                         break;
                     case 3:
-                        Intent intent3 = new Intent(view.getContext(), TestVocabularyActivity.class);
+                        Intent intent3 = new Intent(view.getContext(), SplashLoginActivity.class);
                         view.getContext().startActivity(intent3);
-                        break;
-                    case 4:
-                        Intent intent4 = new Intent(view.getContext(), MusicsActivity.class);
-                        view.getContext().startActivity(intent4);
-                        break;
-                    case 5:
-                        Intent intent5 = new Intent(view.getContext(), SplashLoginActivity.class);
-                        view.getContext().startActivity(intent5);
                 }
             }
         });
