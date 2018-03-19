@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
     private SliderLayout imageSlider;
     private int max = 12;
 
-    private String webUrl = "https://toeicpractice.000webhostapp.com/image/";
+    private String webUrl = "http://thanhhaidev.xyz/image/";
     private String[] url1 = {
             "abide_by", "agreement", "assurance", "cancellation", "determine",
             "engage", "establish", "obligate", "party", "provision", "resolve",
