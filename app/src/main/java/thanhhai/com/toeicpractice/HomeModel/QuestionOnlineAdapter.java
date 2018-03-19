@@ -63,7 +63,7 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
         final PushQuestion question = listQuestions.get(position);
         databaseReference = FirebaseDatabase.getInstance().getReference();
         holder.txtQuestion.setText("Câu " + (position + 1) + ": " + question.getQuestion());
-        holder.rad_answer_a.setText(question.getAnswer_A());
+        holder.rad_answer_a.setText("A. " + question.getAnswer_A());
         holder.rad_answer_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,12 +88,11 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
                         Log.e(TAG, ">>> Error:" + "find onCancelled:" + databaseError);
                     }
                 });
-                showDialog(position, view);
-
+                showDialog(position, view, totalA, question.getTotalB(), question.getTotalC(), question.getTotalD());
             }
         });
 
-        holder.rad_answer_b.setText(question.getAnswer_B());
+        holder.rad_answer_b.setText("B. " + question.getAnswer_B());
         holder.rad_answer_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,7 +116,7 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
                         Log.e(TAG, ">>> Error:" + "find onCancelled:" + databaseError);
                     }
                 });
-                showDialog(position, view);
+                showDialog(position, view, question.getTotalA(), totalB, question.getTotalC(), question.getTotalD());
             }
         });
 
@@ -145,11 +144,11 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
                         Log.e(TAG, ">>> Error:" + "find onCancelled:" + databaseError);
                     }
                 });
-                showDialog(position, view);
+                showDialog(position, view, question.getTotalA(), question.getTotalB(), totalC, question.getTotalD());
             }
         });
 
-        holder.rad_answer_d.setText(question.getAnswer_D());
+        holder.rad_answer_d.setText("D. " + question.getAnswer_D());
         holder.rad_answer_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,7 +172,7 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
                         Log.e(TAG, ">>> Error:" + "find onCancelled:" + databaseError);
                     }
                 });
-                showDialog(position, view);
+                showDialog(position, view, question.getTotalA(), question.getTotalB(), question.getTotalC(), totalD);
             }
         });
     }
@@ -198,17 +197,18 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
         }
     }
 
-    private ArrayList getDataSet(int position) {
+    private ArrayList getDataSet(int position, int tongA, int tongB, int tongC, int tongD) {
+
         final PushQuestion question = listQuestions.get(position);
         ArrayList dataSets = null;
         ArrayList valueSet1 = new ArrayList<>();
-        BarEntry v1e1 = new BarEntry(question.getTotalA(), 3);
+        BarEntry v1e1 = new BarEntry(tongA, 3);
         valueSet1.add(v1e1);
-        BarEntry v1e2 = new BarEntry(question.getTotalB(), 2);
+        BarEntry v1e2 = new BarEntry(tongB, 2);
         valueSet1.add(v1e2);
-        BarEntry v1e3 = new BarEntry(question.getTotalC(), 1);
+        BarEntry v1e3 = new BarEntry(tongC, 1);
         valueSet1.add(v1e3);
-        BarEntry v1e4 = new BarEntry(question.getTotalD(), 0);
+        BarEntry v1e4 = new BarEntry(tongD, 0);
         valueSet1.add(v1e4);
 
         BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Answer");
@@ -234,7 +234,7 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
         }
     }
 
-    private void showDialog(int vitri, View view) {
+    private void showDialog(int vitri, View view, int tongA, int tongB, int tongC, int tongD) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(view.getContext());
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View dialogView = inflater.inflate(R.layout.dialog_chart_result, null);
@@ -246,7 +246,7 @@ public class QuestionOnlineAdapter extends RecyclerView.Adapter<QuestionOnlineAd
         window.setGravity(Gravity.CENTER);
 
         HorizontalBarChart barChart = (HorizontalBarChart) dialogView.findViewById(chart);
-        BarData data = new BarData(getXAxisValues(), getDataSet(vitri));
+        BarData data = new BarData(getXAxisValues(), getDataSet(vitri, tongA, tongB, tongC, tongD));
         data.setValueFormatter(new MyValueFormatter());
         barChart.setData(data);
         data.setValueTextSize(14);

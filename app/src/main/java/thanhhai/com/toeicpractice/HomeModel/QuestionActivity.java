@@ -41,7 +41,6 @@ public class QuestionActivity extends AppCompatActivity {
         questionOnlineAdapter = new QuestionOnlineAdapter(arrayList, getApplicationContext());
         recyclerView.setAdapter(questionOnlineAdapter);
         new QuestionTask().execute();
-        questionOnlineAdapter.notifyDataSetChanged();
     }
 
     private void updateData() {

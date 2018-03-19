@@ -41,7 +41,6 @@ public class ScreenSlideActivity extends FragmentActivity {
     private CustomPagerAdapter mPagerAdapter;
     private ImageButton imgBtnExit;
 
-
     private TextView tvKiemtra, tvTimer, tvXemDiem;
     public int checkAns = 0;
 
